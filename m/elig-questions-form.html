@@ -375,9 +375,12 @@
                     </div>
                     <div class="form-group">
                         <div class="questiongroup ">
-                            <fieldset class="subquestions">
-                                <label><span class="">3.	Preferred contact number (Mobile or Landline)</span>
-                                    <input type="tel" class="form-control" name="phone" id="mobileNumber__ID" required placeholder="XXXX-XXX-XXX or (02)XXXX-XXXX" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}">
+                            <fieldset class="">
+                                <label>3.	Preferred contact number<br><span class="">Mobile</span>
+                                    <input type="tel" class="form-control" name="mobile" id="mobileNumber__ID" required placeholder="XXXX-XXX-XXX" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}">
+                                </label><br>
+                                <label><span class="">Landline</span>
+                                    <input type="tel" class="form-control" name="phone" id="landline__ID" required placeholder="XXXX-XXXX" pattern="[0-9]{4}-[0-9]{4}">
                                 </label><br>
                             </fieldset>
                         </div>
@@ -451,14 +454,16 @@
                     }
                     else {
                         show_section(current_I + 1);
+                        console.log("AAAAAAAAAAAAAAAAA")
                         $('#F__ID *').removeAttr('disabled');
                         $("#F__ID input[name=Eligible]").val("Yes")
                         //old_submit(event);
-                        $("input[name='first_name']").prop('required','true')
-                        $("input[name='last_name']").prop('required','true')
-                        $("input[name='email_address']").prop('required','true')
-                        $("input[name='phone']").prop('required','true')
-                        $("input[name='address']").prop('required','true')
+                        $("input[name='first_name']").attr('required','')
+                        $("input[name='last_name']").attr('required','')
+                        $("input[name='email_address']").attr('required','')
+                        $("input[name='phone']").attr('required','')
+                        $("input[name='mobile']").attr('required','')
+                        $("input[name='address']").attr('required','')
                     }
                 }
                 else if (current_I == N) {
@@ -477,7 +482,16 @@
                 $('#submit1__ID').show();
                 $('#q4-1__ID').hide();
                 $('#shift__ID').removeAttr('required');
-                show_section(1);
+                show_section(3);
+                console.log("BBBBBBBBBBBBBBBB")
+                $("input[name='first_name']").attr('required','')
+                $("input[name='last_name']").attr('required','')
+                $("input[name='email_address']").attr('required','')
+                $("input[name='phone']").attr('required','')
+                $("input[name='mobile']").attr('required','')
+                $("input[name='address']").attr('required','')
+
+
             })
             //---------------------------------------
             $('#F__ID button').on('click', function (event) {
@@ -506,13 +520,23 @@
                 var mn=$('#mobileNumber__ID').val();
                 if(mn.length==10){
                     $('#mobileNumber__ID').val(mn.substring(0,4)+'-'+mn.substring(4,7)+'-'+mn.substring(7,10))
+                    $("input[name='phone']").removeAttr('required')
+
+                }
+            })
+            //-------------------------------------
+            $('#landline__ID').on('change',function(){
+                var mn=$('#landline__ID').val();
+                if(mn.length==8){
+                    $('#landline__ID').val(mn.substring(0,4)+'-'+mn.substring(4,8))
+                    $("input[name='mobile']").removeAttr("required")
                 }
             })
             //-------------------------------------
             $("#D__ID input[name=working]").on('click', function () {
                 if($("#D__ID input[name=working]:checked").val()=='Y'){
                     $('#q4-1__ID').show(); 
-                    $('#shift__ID').prop('required','true');
+                    $('#shift__ID').removeAttribute("required");
                 }
                 else{
                     $('#q4-1__ID').hide(); 
