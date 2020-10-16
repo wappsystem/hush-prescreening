@@ -348,26 +348,75 @@
                 </div>
             </div>
             <div id=S3__ID>
-                <div class="row  mr-0 ml-0 p-4 text-center" >
-                    <div class="col">
-                            Thank you for completing these questions. Based on the responses you have provided, you may be
-                            eligible for the research study.<br><br>
+                <div  id=page3__ID class="row mr-0 ml-0 p-3" style="background-color:#efefef;" >
+                    <div class="col-lg-12 col-sm-12 text-center">
+                        <span style="color:#888">Thank you for completing these questions. Based on the responses you have provided you <b>may be eligible</b> for the research study. <br>We will need to contact you to discuss this over the telephone. Please provide your phone number and e-mail address and we will contact you shortly.</b>
                     </div>
-                </div>
-                <div style='max-width:800px;margin-left:auto;margin-right:auto;'>
+                    <div class="col-lg-4 col-sm-0 text-center"></div>
+                </div>    
+                <div id=quest3__ID style='max-width:800px;margin-left:auto;margin-right:auto;'>
+                    <div class="form-group">
+                        <div class="questiongroup ">
+                            <fieldset class="subquestions">
+                                <label><span class="">1. First name</span>
+                                      <input class="form-control" type="text" name="first_name" >
+                                </label><br>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="questiongroup ">
+                            <fieldset class="subquestions">
+                                <label><span class="">2. Last name</span>
+                                      <input class="form-control" type="text" name="last_name" >
+                                </label><br>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="questiongroup ">
+                            <fieldset class="">
+                                <label>3.	Preferred contact number<br><span class="">Mobile</span>
+                                    <input type="tel" class="form-control" name="mobile" id="mobileNumber__ID" required placeholder="XXXX-XXX-XXX" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}">
+                                </label><br>
+                                <label><span class="">Landline</span>
+                                    <input type="tel" class="form-control" name="phone" id="landline__ID" required placeholder="XXXX-XXXX" pattern="[0-9]{4}-[0-9]{4}">
+                                </label><br>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="questiongroup ">
+                            <fieldset class="subquestions">
+                                <label><span class="">4. Email</span>
+                                    <input class="form-control" type="email" name="email_address" >
+                                </label><br>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="questiongroup ">
+                            <fieldset class="subquestions">
+                                <label style="width:100%"><span class="">5. Address</span>
+                                    <textarea class="form-control" name="address" ></textarea>
+                                </label><br>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div style="text-align:right">
+                        <button type="submit" id=submit1__ID d=1 style="border-radius:2rem;background-color: #748A66;width:180px;height:60px;font-family: Arial, Helvetica, sans-serif" class="btn btn-lg">Submit</button>
+                    </div>
+                    <br>
                     <hr>
                     <div class="text-center">
-                        Please continue to another website for registration for the Hush Study using the reference number below. We will contact you soon.<br>
-                        Your reference number is <span style='font-size:1.5rem;font-weight:bold;' id=refnum__ID></span>.<br>
-                        <a id=hush_registration__ID target="_blank" style="color:#000;font-size: 200%;" >Hush Registration</a>
+                        Contact Us
                         <br><br>
-                        Phone: (02) 9876 5432<br>
-                        Email: aaa.bbb@cccc.edu.au<br><br>
+                        Phone: (02) XXXX XXXXX<br>
+                        Email: hush.study@sydney.edu.au<br><br>
                         Thanks you for your time and effort,<br>
                         <b>The Hush Study Research Team</b><br>
                     </div>
                 </div>
-                <div style='display:none'><input name=Eligible type=text></div>
             </div>
         </form>
     </div>
@@ -405,9 +454,16 @@
                     }
                     else {
                         show_section(current_I + 1);
+                        console.log("AAAAAAAAAAAAAAAAA")
                         $('#F__ID *').removeAttr('disabled');
                         $("#F__ID input[name=Eligible]").val("Yes")
-                        old_submit(event);
+                        //old_submit(event);
+                        $("input[name='first_name']").attr('required','')
+                        $("input[name='last_name']").attr('required','')
+                        $("input[name='email_address']").attr('required','')
+                        $("input[name='phone']").attr('required','')
+                        $("input[name='mobile']").attr('required','')
+                        $("input[name='address']").attr('required','')
                     }
                 }
                 else if (current_I == N) {
@@ -419,16 +475,23 @@
             }
             //---------------------------------------
             m.after_insert = function (data,index) {
-                $('#refnum__ID').text("S"+(index.result.ops[0].UID).toString().padStart(3,"0"));
+                $('#refnum__ID').text(index.result.ops[0].UID)
             }
             //---------------------------------------
             $('#D__ID').on('load', function () {
                 $('#submit1__ID').show();
                 $('#q4-1__ID').hide();
                 $('#shift__ID').removeAttr('required');
-                var hosting=$vm.hosting_path.replace("prescreening","registration")
-                $('#hush_registration__ID').attr("href",hosting)
-                show_section(1);
+                show_section(3);
+                console.log("BBBBBBBBBBBBBBBB")
+                $("input[name='first_name']").attr('required','')
+                $("input[name='last_name']").attr('required','')
+                $("input[name='email_address']").attr('required','')
+                $("input[name='phone']").attr('required','')
+                $("input[name='mobile']").attr('required','')
+                $("input[name='address']").attr('required','')
+
+
             })
             //---------------------------------------
             $('#F__ID button').on('click', function (event) {
