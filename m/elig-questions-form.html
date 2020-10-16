@@ -359,7 +359,7 @@
                     <div class="text-center">
                         Please continue to another website for registration for the Hush Study using the reference number below. We will contact you soon.<br>
                         Your reference number is <span style='font-size:1.5rem;font-weight:bold;' id=refnum__ID></span>.<br>
-                        <a id=hush_registration__ID target="_blank" style="color:#000;font-size: 200%;" >Hush Registration</a>
+                        <a id=hush_registration__ID target="_blank" style="color:#000;font-size: 200%;border-radius:5px;padding:5px;background-color: #748A66" >Hush Registration</a>
                         <br><br>
                         Phone: (02) 9876 5432<br>
                         Email: aaa.bbb@cccc.edu.au<br><br>
@@ -396,7 +396,7 @@
                 event.preventDefault();
                 if (current_I == N-1) {
                     var isi=(parseInt($("#D__ID input[name=ISI_2]:checked").val())+parseInt($("#D__ID input[name=ISI_3]:checked").val())+parseInt($("#D__ID input[name=ISI_4]:checked").val())+parseInt($("#D__ID input[name=ISI_5]:checked").val())+parseInt($("#D__ID input[name=ISI_1a]:checked").val())+parseInt($("#D__ID input[name=ISI_1b]:checked").val())+parseInt($("#D__ID input[name=ISI_1c]:checked").val())).toString();
-                    if($("input[name='age']:checked").val()=='N' || $("input[name='english']:checked").val()=='N' || $("input[name='internet']:checked").val()=='N' || $("input[name='email']:checked").val()=='N' || $("input[name='insomnia']:checked").val()=='N' || $("input[name='other_health']:checked").val()=='N' || $("input[name='cannabis']:checked").val()=='N' || $("input[name='time']:checked").val()=='N' || isi<=10 ) {
+                    if($("input[name='age']:checked").val()=='N' || $("input[name='english']:checked").val()=='N' || $("input[name='internet']:checked").val()=='N' || $("input[name='email']:checked").val()=='N' || $("input[name='insomnia']:checked").val()=='N' || $("input[name='other_health']:checked").val()=='Y' || $("input[name='cannabis']:checked").val()=='Y' || $("input[name='time']:checked").val()=='N' || isi<=10 ) {
                         $('#F__ID *').removeAttr('disabled');
                         $("#F__ID input[name=Eligible]").val("No")
                         old_submit(event);
