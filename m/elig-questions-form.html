@@ -122,7 +122,7 @@
                                     <input type="radio" name="other_health" value="N">
                                     <span class="checkmark"></span>No </label>
                                 <label class="radiobuttons ">
-                                    <input type="radio" name="other_health" value="DK">
+                                    <input type="radio" name="other_health" value="Unsure">
                                     <span class="checkmark"></span>Unsure </label>
                             </fieldset>
                         </div>
@@ -149,17 +149,16 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm control-group">
-                                <h4>8. Are you willing to dedicate time to two blood tests, drug
-                                    screens and pregnancy tests (if female) at the start and
-                                    close of the study; a phone interview with the clinical
-                                    trials coordinator, a tele-health consultation with the
-                                    study doctor, two comprehensive 30 minute online
-                                    questionnaires at the start and close of the study; five 20
-                                    minute online fortnightly questionnaires, a sleep dairy,
-                                    use of a sleep tracking watch and administration of a
-                                    daily supplement of the study drug or placebo over the
-                                    12 week study period?
-                                </h4>
+                                <h4>8. Are you willing to dedicate time to:</h4>
+                                <div style='font-size:80%'>
+                                    •	Take a daily supplement of the study drug or placebo over the 12 week period, <br>
+                                    •	1 x Phone call with the clinical trial coordinator (approx. 30 minutes), <br>
+                                    •	2 x Pathology tests (blood test, urinary drug screen and a pregnancy test (if applicable)) at the start and close of the study (approx. 15 minutes each),<br>
+                                    •	1 x Tele-health consultation with the study doctor (approx. 20 minutes),<br>
+                                    •	2 x 30-minute online questionnaires, one at the start and one at the close of the study,<br>
+                                    •	5 x 20 minute online fortnightly questionnaires<br>
+                                    •	Complete a 5-minute online sleep dairy and wear a sleep tracking watch during Weeks 4, 8 and 12.<br><br>
+                                </div>
                             </div>
                         </div>
                         <div class="questiongroup">
@@ -171,7 +170,7 @@
                                     <input type="radio" name="time" value="N">
                                     <span class="checkmark"></span>No </label>
                                 <label class="radiobuttons ">
-                                    <input type="radio" name="time" value="DK">
+                                    <input type="radio" name="time" value="Unsure">
                                     <span class="checkmark"></span>Unsure </label>
                             </fieldset>
                         </div>
@@ -350,21 +349,22 @@
             <div id=S3__ID>
                 <div class="row  mr-0 ml-0 p-4 text-center" >
                     <div class="col">
-                            Thank you for completing these questions. Based on the responses you have provided, you may be
-                            eligible for the research study.<br><br>
+                        Thank you for completing the HUSH Pre-Screening Questionnaire. Based on the responses you have provided, you may be eligible for the research study.<br><br>
                     </div>
                 </div>
                 <div style='max-width:800px;margin-left:auto;margin-right:auto;'>
                     <hr>
                     <div class="text-center">
-                        Please continue to another website for registration for the Hush Study using the reference number below. We will contact you soon.<br>
-                        Your reference number is <span style='font-size:1.5rem;font-weight:bold;' id=refnum__ID></span>.<br>
-                        <a id=hush_registration__ID target="_blank" style="color:#000;font-size: 200%;border-radius:5px;padding:5px;background-color: #748A66" >Hush Registration</a>
+                        Your reference number is <span style='font-size:1.5rem;font-weight:bold;' id=refnum__ID></span>.<br><br>
+                        Please use the 'HUSH Registration' button below to complete your registration for the HUSH Study using the reference number above:<br><br>
+                        <a id=hush_registration__ID target="_blank" style="color:#000;font-size: 130%;border-radius:5px;padding:5px;background-color: #748A66" >Hush Registration' button</a>
                         <br><br>
-                        Phone: (02) 9876 5432<br>
+                        We will contact you soon<br><br>
+                        Thanks you for your time<br><br>
+<!--                        Phone: (02) 9876 5432<br>
                         Email: aaa.bbb@cccc.edu.au<br><br>
                         Thanks you for your time and effort,<br>
-                        <b>The Hush Study Research Team</b><br>
+                        <b>The Hush Study Research Team</b><br>-->
                     </div>
                 </div>
                 <div style='display:none'><input name=Eligible type=text></div>
@@ -396,7 +396,7 @@
                 event.preventDefault();
                 if (current_I == N-1) {
                     var isi=(parseInt($("#D__ID input[name=ISI_2]:checked").val())+parseInt($("#D__ID input[name=ISI_3]:checked").val())+parseInt($("#D__ID input[name=ISI_4]:checked").val())+parseInt($("#D__ID input[name=ISI_5]:checked").val())+parseInt($("#D__ID input[name=ISI_1a]:checked").val())+parseInt($("#D__ID input[name=ISI_1b]:checked").val())+parseInt($("#D__ID input[name=ISI_1c]:checked").val())).toString();
-                    if($("input[name='age']:checked").val()=='N' || $("input[name='english']:checked").val()=='N' || $("input[name='internet']:checked").val()=='N' || $("input[name='email']:checked").val()=='N' || $("input[name='insomnia']:checked").val()=='N' || $("input[name='other_health']:checked").val()=='Y' || $("input[name='cannabis']:checked").val()=='Y' || $("input[name='time']:checked").val()=='N' || isi<=10 ) {
+                    if($("input[name='age']:checked").val()=='N' || $("input[name='english']:checked").val()=='N' || $("input[name='internet']:checked").val()=='N' || $("input[name='email']:checked").val()=='N' || $("input[name='insomnia']:checked").val()=='N' || $("input[name='other_health']:checked").val()=='Y' || $("input[name='cannabis']:checked").val()=='Y' || $("input[name='time']:checked").val()=='N' || isi<=7 ) {
                         $('#F__ID *').removeAttr('disabled');
                         $("#F__ID input[name=Eligible]").val("No")
                         old_submit(event);

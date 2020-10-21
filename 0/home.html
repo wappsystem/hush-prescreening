@@ -31,8 +31,14 @@
 		Eligible participants will be contacted and invited to continue the screening process.<br><br>
 		<h5>I agree on completing a number of screening questionnaires to determine if I am suitable for the study.</h5>
 		<br>
-		<button id="yes__ID" style="background-color:#748A66" class="btn btn-lg">I agree</button>
-		&nbsp;&nbsp;&nbsp;&nbsp;<button id="no__ID"  class="btn btn-outline-secondary">No thanks</button><br><br>
+		<div class="row">
+			<div class="col-lg-6 col-sm-12 p-2">
+				<button id="yes__ID" style="background-color:#748A66" class="btn btn-lg">I agree</button>
+			</div>
+			<div class="col-lg-6 col-sm-12 p-2">
+				<button id="no__ID"  class="btn btn-outline-secondary">No thanks</button>
+			</div>
+		</div>
 		<div id=list__ID class=row style='background-color: white;padding: 5px;border-radius: 50px;'>
 			<div class="col-sm pt-2">
 				<a target="_blank" style="color:#000" href="https://www.sydney.edu.au/"><img src='__CURRENT_PATH__/../../images/university-of-sydney-logo.png' ></a>
@@ -44,6 +50,7 @@
 	</div>
 	<script>
 		function F__ID(){
+			$('#footer').hide();
 			var m=$vm.module_list['__MODULE__'];
 			if(m.prefix==undefined) m.prefix="";
 			$('#yes__ID').on('click',function(){	$vm.load_module(m.prefix+'recruitment-form','',{});	})
